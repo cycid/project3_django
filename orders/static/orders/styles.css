@@ -1,3 +1,22 @@
 body {
 	background-color: #1ba124;
 }
+.register {
+	margin-left: 20px;
+}
+.menu_row {
+	margin: 2px;
+	background-color: red;
+	border-radius: 5px;
+	overflow: auto;
+	width: 300px;
+}
+.list_size 
+{
+width: 100px;
+}
+
+a {
+	font-size: 16px;
+    color: #00008B;
+}

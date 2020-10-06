@@ -1,0 +1,40 @@
+{% extends "orders/base.html" %}
+{% block title %}
+    Hello {{context}}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% block body %}
+
+  
+   <h2> Your order:</h2>
+   
+   
+   {% for lis in list_order %}
+   <div>
+
+   <strong> Dish:</strong>  {{lis.menu.dish}} {{lis.menu.dish_type}} <strong> amount: </strong> {{lis.amount}} <strong> Size: </strong> {{lis.size}} <strong> price: </strong>{{lis.price}} <a href="{% url 'delete' lis.pk %}"><button>delete</button></a>
+   
+
+
+
+
+</div>
+   {% endfor %}
+
+Order cost: {{price}}
+<p><a href="{% url 'confirm' %}" method="POST"><button>Confirm order</button></p></a>
+<br> {% for l in confirmed %}
+<br>
+ <strong> Dish:</strong>  {{l.menu.dish}} {{l.menu.dish_type}} <strong> amount: </strong> {{l.amount}} <strong> Size: </strong> {{l.size}} <strong> price: </strong>{{l.price}}  
+  <strong>Status:</strong>{{l.status}} 
+  {% endfor %}
+{% endblock %}

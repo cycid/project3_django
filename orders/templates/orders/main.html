@@ -1,0 +1,59 @@
+{% extends "orders/base.html" %}
+{% block title %}
+    Hello {{context}}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% block body %}
+
+  
+   <h2> Please make your order</h2>
+   
+   
+   {% for nam in name %}
+
+   <h2>{{nam}}</h2>
+   {% for men in menu %}
+   {% if men.dish == nam %}
+   <div class="menu_row" id="{{men.pk}}" style="
+	margin: 2px;
+	background-color: red;
+	border-radius: 5px;
+	overflow: auto;
+	width: 400px;
+">
+
+
+
+
+
+
+<strong>{{men.dish_type}} </strong> <span style="float: right;"> {{size}} <strong>cost: {{men.cost_small}}/{{men.cost_large}}</strong><button class="adding_form" onclick="add_form(this.value)" value="{{men.pk}}">order</button></span>
+   	{% if men.size == "staxxndart" %}
+   	<form action="" class="order_form" method="POST">
+   		{% csrf_token %}
+   		<input id="small" type="radio" name="size" value="small" checked="checked">
+   		<label for="small">small</label>
+   		<input id="large" type="radio" name="size" value="large">
+   		<label for="large">large</label>
+   		<input type="number" step="1" min="0" name="amount" class="amount" placeholder="amount">
+   		<button class="confirm_order" name="confirm_order" value="{{ men.pk }}" type="submit">order</button>
+   	</form>
+   	{% endif %}
+
+     </div>
+    
+   {% endif %}
+   {% endfor %}
+   {% endfor %}
+   
+   
+{% endblock %}

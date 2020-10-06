@@ -1,0 +1,15 @@
+{% extends "orders/base.html" %}
+{% block title %}
+    Log in
+{% endblock %}
+{% block body %}
+   <h2> Please enter to your profile</h2>
+   <form class="loggin", action="{% url 'login' %}", method="POST">
+   	{% csrf_token %}
+    <input type="text" name="username" placeholder="username"/>
+    <p><input type="password" name="password" placeholder="password" /></p>
+       
+    <p><input type="submit" value="login"/></p>
+</form>
+<p><a href="{% url 'signup' %}"> sign up</a></p>
+{% endblock %}

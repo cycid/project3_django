@@ -1,14 +1,4 @@
-{% load static %}
 
-<!DOCTYPE html>
-<html>
-    <head> 
-    	<meta name="_csrf" content="${_csrf.token}"/>
-        <meta name="_csrf_header" content="${_csrf.headerName}"/>
-        <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'orders/styles.css' %}"/>
-        <script type="text/javascript">
         	
 
         	//get csrf from cookies
@@ -248,12 +238,3 @@ function order_dish()
 
 }
 	
-</script>
-    </head>
-    <body>
-      <a style="color: #00008B; font-size: 16px" href="{% url 'logout' %}">Log out</a> <div style="display: inline; position: absolute; right: 10%;"><a style="color: #00008B; font-size: 16px" href="{% url 'show' %}" method="GET">to orders</a></div>
-        {% block body %}
-        {% endblock %}
-        <div style="position: absolute; left: 47%"><a style="color: #00008B; font-size: 16px" href="{% url 'index' %}">main page</a></div><div><br><a style="color: #00008B; font-size: 16px" href="{% url 'config' %}">for admin</a></div>
-    </body>
-</html>

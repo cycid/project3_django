@@ -1,0 +1,59 @@
+{% extends "orders/base.html" %}
+{% block title %}
+    Orders
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% block body %}
+
+  
+   <h2> Not confirmed orders:</h2>
+   
+   
+   {% for n in not_confirmed %}
+   <div>
+
+   <strong> Dish:</strong>  {{n.menu.dish}} {{n.menu.dish_type}} <strong> amount: </strong> {{n.amount}} <strong> Size: </strong> {{n.size}} <strong> price: </strong>{{n.price}} <strong>User:</strong>{{n.user}}
+   
+
+
+
+
+</div>
+   {% endfor %}
+<h2> Already ordered</h2>
+{% for n in confirmed %}
+   <div>
+
+   <strong> Dish:</strong>  {{n.menu.dish}} {{n.menu.dish_type}} <strong> amount: </strong> {{n.amount}} <strong> Size: </strong> {{n.size}} <strong> price: </strong>{{n.price}} <strong>User:</strong>{{n.user}}<a href="{% url 'done' n.pk %}"><button>Done</button></a>
+   
+
+
+
+
+</div>
+   {% endfor %}
+<h2> Already done</h2>
+ {% for n in done %}
+   <div>
+
+   <strong> Dish:</strong>  {{n.menu.dish}} {{n.menu.dish_type}} <strong> amount: </strong> {{n.amount}} <strong> Size: </strong> {{n.size}} <strong> price: </strong>{{n.price}} <strong>User:</strong>{{n.user}}
+   
+
+
+
+
+</div>
+   {% endfor %}
+
+   
+   
+{% endblock %}
